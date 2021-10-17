@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+    <h1>Voir ou modifier</h1>
+    <form action="#" th:action="@{/personnes/save}" th:object="${personne}" method="post">
+        <input type="hidden" th:field="*{id}" />
+        <label>Nom:</label><input type="text" th:field="*{nom}" />
+        <label>Prenom:</label><input type="text" th:field="*{prenom}" />
+        <button type="submit">Modifier</button> <a th:href="@{/personnes}">Revenir à la liste</a>
+    </form>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <head>
+        <title>Getting Started: Serving Web Content</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    </head>
+    <body>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Voir</th>
+                <th>Supprimer</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${personnes.isEmpty()}"><td colspan="2"> Aucune personnes</td>
+            </tr>
+            <tr th:each="personne : ${personnes}">
+                <td th:text="${personne.getId()}"></td>
+                <td th:text="${personne.getNom()}"></td>
+                <td th:text="${personne.getPrenom()}"></td>
+                <td><a th:href="@{/personnes/{id}(id=${personne.getId()})}">Voir le detail</a></td>
+                <td><a th:href="@{/personnes/{id}/delete(id=${personne.getId()})}">Supprimer la personne</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <a th:href="@{/personnes/new}">Ajouter une personne</a>
+    </body>
+</html>

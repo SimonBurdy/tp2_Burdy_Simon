@@ -27,9 +27,11 @@ public class PersonneController {
     /* Affiche une page pour ajouter une nouvelle personne */
     @GetMapping("/personnes/new")
     public String newPersonne(Model model) {
+        
         model.addAttribute("personne", new Personne());
         return "newpersonne";
     }
+
 
     /* Montre les informations d'une personne */
     @GetMapping("personnes/{id}")
@@ -39,12 +41,14 @@ public class PersonneController {
         return "detailPersonne";
     }
 
+
     /* Supprime une personne */
     @GetMapping("personnes/{id}/delete")
     public String deletePersonne(@PathVariable("id") int personId, Model model)  {
         personneService.deletePersonne(personId);
         return "redirect:/personnes";
     }
+
 
     /* Ajoute ou modifier une personne */
     @PostMapping("/personnes/save")
